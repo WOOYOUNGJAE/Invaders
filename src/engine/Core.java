@@ -17,11 +17,12 @@ import screen.*;
  * 
  */
 public final class Core {
-
+	/** Number to resize*/
+	public static int sizingNum = 2;
 	/** Width of current screen. */
-	private static final int WIDTH = 448;
+	private static final int WIDTH = 448*Core.sizingNum;
 	/** Height of current screen. */
-	private static final int HEIGHT = 520;
+	private static final int HEIGHT = 520*Core.sizingNum;
 	/** Max fps of current screen. */
 	private static final int FPS = 60;
 

@@ -19,8 +19,8 @@ public class Ship extends Entity {
 	private static final int SHOOTING_INTERVAL = 750;
 	/** Speed of the bullets shot by the ship. */
 	private static final int BULLET_SPEED = -6;
-	/** Movement of the ship for each unit of time. */
-	private static final int SPEED = 2;
+	/** Movement of the ship for each unit of time. +update ship speed propotional to sizingNum*/
+	private static final int SPEED = 2*Core.sizingNum;
 	
 	/** Minimum time between shots. */
 	private Cooldown shootingCooldown;
@@ -36,7 +36,8 @@ public class Ship extends Entity {
 	 *            Initial position of the ship in the Y axis.
 	 */
 	public Ship(final int positionX, final int positionY) {
-		super(positionX, positionY, 13 * 2, 8 * 2, Color.GREEN);
+		super(positionX, positionY, 13 * 2, 8 * 2
+				, Color.GREEN);
 
 		this.spriteType = SpriteType.Ship;
 		this.shootingCooldown = Core.getCooldown(SHOOTING_INTERVAL);
@@ -69,7 +70,7 @@ public class Ship extends Entity {
 	public final boolean shoot(final Set<Bullet> bullets) {
 		if (this.shootingCooldown.checkFinished()) {
 			this.shootingCooldown.reset();
-			bullets.add(BulletPool.getBullet(positionX + this.width / 2,
+			bullets.add(BulletPool.getBullet(positionX + this.width / (2*Core.sizingNum),
 					positionY, BULLET_SPEED));
 			return true;
 		}

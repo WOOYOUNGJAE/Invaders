@@ -2,6 +2,7 @@ package entity;
 
 import java.awt.Color;
 
+import engine.Core;
 import engine.DrawManager.SpriteType;
 
 /**
@@ -47,10 +48,10 @@ public class Bullet extends Entity {
 	}
 
 	/**
-	 * Updates the bullet's position.
+	 * Updates the bullet's position.	+update bullet speed propotional to sizingNum
 	 */
 	public final void update() {
-		this.positionY += this.speed;
+		this.positionY += this.speed*Core.sizingNum;
 	}
 
 	/**
