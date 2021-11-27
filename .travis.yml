@@ -1,6 +1,6 @@
 language: java
 jdk:
-  -15
+  -6
 
 notifications:
   email:
