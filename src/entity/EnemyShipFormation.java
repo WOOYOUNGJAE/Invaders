@@ -27,15 +27,15 @@ public class EnemyShipFormation implements Iterable<EnemyShip> {
 	/** Initial position in the y-axis. */
 	private static final int INIT_POS_Y = 100;
 	/** Distance between ships. */
-	private static final int SEPARATION_DISTANCE = 40*Core.sizingNum;
+	private static final int SEPARATION_DISTANCE = 40;
 	/** Proportion of C-type ships. */
 	private static final double PROPORTION_C = 0.2;
 	/** Proportion of B-type ships. */
 	private static final double PROPORTION_B = 0.4;
 	/** Lateral speed of the formation. */
-	private static final int X_SPEED = 8*Core.sizingNum;
+	private static final int X_SPEED = 8;
 	/** Downwards speed of the formation. */
-	private static final int Y_SPEED = 4*Core.sizingNum;
+	private static final int Y_SPEED = 4;
 	/** Speed of the bullets shot by the members. */
 	private static final int BULLET_SPEED = 4;
 	/** Proportion of differences between shooting times. */
@@ -154,7 +154,7 @@ public class EnemyShipFormation implements Iterable<EnemyShip> {
 			}
 		}
 
-		this.shipWidth = this.enemyShips.get(0).get(0).getWidth();
+		this.shipWidth = this.enemyShips.get(0).get(0).getWidth() ;
 		this.shipHeight = this.enemyShips.get(0).get(0).getHeight();
 
 		this.width = (this.nShipsWide - 1) * SEPARATION_DISTANCE
@@ -211,9 +211,10 @@ public class EnemyShipFormation implements Iterable<EnemyShip> {
 			movementInterval = 0;
 
 			boolean isAtBottom = positionY
-					+ this.height > screen.getHeight() - BOTTOM_MARGIN;
+					+ this.height > 497 - BOTTOM_MARGIN;
 			boolean isAtRightSide = positionX
-					+ this.width >= screen.getWidth() - SIDE_MARGIN;
+					+ this.width >= 434 - SIDE_MARGIN;
+
 			boolean isAtLeftSide = positionX <= SIDE_MARGIN;
 			boolean isAtHorizontalAltitude = positionY % DESCENT_DISTANCE == 0;
 

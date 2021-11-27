@@ -8,12 +8,12 @@ import engine.*;
 
 /**
  * Implements a generic screen.
- * 
+ *
  * @author <a href="mailto:RobertoIA1987@gmail.com">Roberto Izquierdo Amo</a>
- * 
+ *
  */
 public class Screen {
-	
+
 	/** Milliseconds until the screen accepts user input. */
 	private static final int INPUT_DELAY = 1000;
 
@@ -47,9 +47,11 @@ public class Screen {
 	/** Hit sound effect */
 	protected Audio hitSound;
 
+	private final int FPS = 60;
+
 	/**
 	 * Constructor, establishes the properties of the screen.
-	 * 
+	 *
 	 * @param width
 	 *            Screen width.
 	 * @param height
@@ -79,14 +81,13 @@ public class Screen {
 
 	/**
 	 * Activates the screen.
-	 * 
+	 *
 	 * @return Next screen code.
 	 */
 	public int run() {
 		this.isRunning = true;
-
-		backgroundMusic = new Audio("res/audio", true);
-		hitSound = new Audio("res/audio", false);
+//		backgroundMusic = new Audio("res/audio", true);
+//		hitSound = new Audio("res/audio", false);
 		while (this.isRunning) {
 			long time = System.currentTimeMillis();
 
@@ -113,7 +114,7 @@ public class Screen {
 
 	/**
 	 * Getter for screen width.
-	 * 
+	 *
 	 * @return Screen width.
 	 */
 	public final int getWidth() {
@@ -122,10 +123,24 @@ public class Screen {
 
 	/**
 	 * Getter for screen height.
-	 * 
+	 *
 	 * @return Screen height.
 	 */
 	public final int getHeight() {
 		return this.height;
 	}
+
+	/**
+	 * Getter for screen ratio.
+	 *
+	 * @return double ratio.
+	 */
+	public final double getRatio() { return this.width / 434f; }
+
+	/**
+	 * Getter for position.
+	 *
+	 * @return int position.
+	 */
+	public int getPosition(final int position) { return (int) (position * this.getRatio()); }
 }

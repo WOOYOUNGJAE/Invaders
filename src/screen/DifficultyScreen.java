@@ -33,7 +33,7 @@ public class DifficultyScreen extends Screen {
         super(width, height, fps);
 
         // Defaults to normal level.
-        this.returnCode = 5;
+        this.returnCode = 1;
         this.selectionCooldown = Core.getCooldown(SELECTION_TIME);
         this.selectionCooldown.reset();
     }
@@ -77,8 +77,8 @@ public class DifficultyScreen extends Screen {
      * Shifts the focus to the next menu item.
      */
     private void nextMenuItem() {
-        if (this.returnCode == 7)
-            this.returnCode = 5;
+        if (this.returnCode == 3)
+            this.returnCode = 1;
         else this.returnCode++;
     }
 
@@ -86,8 +86,8 @@ public class DifficultyScreen extends Screen {
      * Shifts the focus to the previous menu item.
      */
     private void previousMenuItem() {
-        if (this.returnCode == 5)
-            this.returnCode = 7;
+        if (this.returnCode == 1)
+            this.returnCode = 3;
         else
             this.returnCode--;
     }
