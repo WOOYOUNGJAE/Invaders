@@ -1,15 +1,17 @@
 language: java
-# jdk:
-#   -15.0.2
 
-# notifications:
-#   email:
-#     recipients:
-#       - azn2ww@naver.com
-jdk: openjdk10
-script:
-   - wget https://github.com/sormuras/bach/raw/master/install-jdk.sh
-  - chmod +x $TRAVIS_BUILD_DIR/install-jdk.sh
-  - export JAVA_HOME=$HOME/openjdk11
-  - $TRAVIS_BUILD_DIR/install-jdk.sh -F 11 --target $JAVA_HOME
-  - # do stuff with open OpenJDK 11
+branches:
+  only:
+    - develop
+
+script: ant build
+
+addons:
+  apt:
+    packages:
+      ant
+
+notifications:
+  email:
+    recipients:
+      - azn2ww@naver.com
