@@ -1,5 +1,6 @@
 package screen;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
@@ -283,10 +284,19 @@ public class GameScreen extends Screen {
 				for (EnemyShip enemyShip : this.enemyShipFormation)
 					if (!enemyShip.isDestroyed()
 							&& checkCollision(bullet, enemyShip)) {
-						this.score += enemyShip.getPointValue();
-						this.shipsDestroyed++;
-						this.enemyShipFormation.destroy(enemyShip);
-						recyclable.add(bullet);
+						if (enemyShip.hp == 1) {
+							this.score += enemyShip.getPointValue();
+							this.shipsDestroyed++;
+							this.enemyShipFormation.destroy(enemyShip);
+							recyclable.add(bullet);
+						}
+						if (enemyShip.hp == 2) {
+							this.score += enemyShip.getPointValue();
+//							this.shipsDestroyed++;
+//							this.enemyShipFormation.destroy(enemyShip);
+							recyclable.add(bullet);
+							enemyShip.hp--;
+						}
 					}
 				if (this.enemyShipSpecial != null
 						&& !this.enemyShipSpecial.isDestroyed()
