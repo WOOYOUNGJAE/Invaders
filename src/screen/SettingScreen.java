@@ -80,6 +80,7 @@ public class SettingScreen extends Screen {
             this.returnCode++;
     }
 
+
     /**
      * Shifts the focus to the previous menu item.
      */
