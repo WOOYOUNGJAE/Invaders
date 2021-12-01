@@ -235,14 +235,17 @@ public final class DrawManager {
 						   final int positionY) {
 		boolean[][] image = spriteMap.get(entity.getSpriteType());
 
-		backBufferGraphics.setColor(entity.getColor());
+		backBufferGraphics.setColor(entity.getColor()); //컬러 설정
 		for (int i = 0; i < image.length; i++)
 			for (int j = 0; j < image[i].length; j++)
 				if (image[i][j])
 					backBufferGraphics.fillRect(screen.getPosition(positionX) + i * screen.getPosition(2),
-							screen.getPosition(positionY) + j * screen.getPosition(2),
+									screen.getPosition(positionY) + j * screen.getPosition(2),
 							screen.getPosition(2), screen.getPosition(2));
 	}
+
+
+
 
 	/**
 	 * For debugging purpouses, draws the canvas borders.

@@ -5,10 +5,7 @@ import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
 
-import engine.Cooldown;
-import engine.Core;
-import engine.GameSettings;
-import engine.GameState;
+import engine.*;
 import entity.Bullet;
 import entity.BulletPool;
 import entity.EnemyShip;
@@ -71,6 +68,8 @@ public class GameScreen extends Screen {
 	private boolean levelFinished;
 	/** Checks if a bonus life is received. */
 	private boolean bonusLife;
+
+	private static Graphics backBufferGraphics;
 
 	/**
 	 * Constructor, establishes the properties of the screen.
@@ -296,6 +295,11 @@ public class GameScreen extends Screen {
 //							this.enemyShipFormation.destroy(enemyShip);
 							recyclable.add(bullet);
 							enemyShip.hp--;
+							enemyShip.color = Color.WHITE;
+//							drawManager.drawEntitywhite(enemyShip, enemyShip.getPositionX(), enemyShip.getPositionY());
+//							enemyShip.color = Color.WHITE;
+
+
 						}
 					}
 				if (this.enemyShipSpecial != null

@@ -1,5 +1,6 @@
 package entity;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -143,7 +144,7 @@ public class EnemyShipFormation implements Iterable<EnemyShip> {
 					column.add(new EnemyShip((SEPARATION_DISTANCE
 							* this.enemyShips.indexOf(column))
 							+ positionX, (SEPARATION_DISTANCE * i)
-							+ positionY, spriteType, 2));
+							+ positionY, spriteType, 2, Color.GREEN));
 				}
 				else if (i / (float) this.nShipsHigh < PROPORTION_B
 						+ PROPORTION_C) {
@@ -151,14 +152,14 @@ public class EnemyShipFormation implements Iterable<EnemyShip> {
 					column.add(new EnemyShip((SEPARATION_DISTANCE
 							* this.enemyShips.indexOf(column))
 							+ positionX, (SEPARATION_DISTANCE * i)
-							+ positionY, spriteType, 1));
+							+ positionY, spriteType, 1, Color.WHITE));
 				}
 				else {
 					spriteType = SpriteType.EnemyShipA1;
 					column.add(new EnemyShip((SEPARATION_DISTANCE
 							* this.enemyShips.indexOf(column))
 							+ positionX, (SEPARATION_DISTANCE * i)
-							+ positionY, spriteType, 1));
+							+ positionY, spriteType, 1, Color.WHITE));
 
 				}
 				this.shipCount++;

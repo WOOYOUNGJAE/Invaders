@@ -31,6 +31,7 @@ public class EnemyShip extends Entity {
 	private int pointValue;
 	/** hp of enemyship. Only type C takes 2*/
 	public int hp; //static 되면 안됨
+	public Color color;
 	/**
 	 * Constructor, establishes the ship's properties.
 	 * 
@@ -42,8 +43,8 @@ public class EnemyShip extends Entity {
 	 *            Sprite type, image corresponding to the ship.
 	 */
 	public EnemyShip(final int positionX, final int positionY,
-			final SpriteType spriteType, int hp) {
-		super(positionX, positionY, 12 * 2, 8 * 2, Color.WHITE);
+			final SpriteType spriteType, int hp, Color color) {
+		super(positionX, positionY, 12 * 2, 8 * 2, color);
 
 		this.spriteType = spriteType;
 		this.animationCooldown = Core.getCooldown(500);
@@ -61,13 +62,14 @@ public class EnemyShip extends Entity {
 		case EnemyShipC1:
 		case EnemyShipC2:
 			this.pointValue = C_TYPE_POINTS;
-			this.color = Color.GREEN;
+//			this.color = Color.GREEN;
 			break;
 		default:
 			this.pointValue = 0;
 			break;
 		}
 		this.hp = hp;
+		this.color = color;
 	}
 
 	/**
@@ -92,7 +94,7 @@ public class EnemyShip extends Entity {
 	}
 
 	/**
-	 * Moves the ship the specified distance.
+	 * Moves the ship the specifspied distance.
 	 * 
 	 * @param distanceX
 	 *            Distance to move in the X axis.
