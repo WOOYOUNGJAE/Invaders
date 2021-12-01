@@ -71,6 +71,7 @@ public class GameScreen extends Screen {
 	/** Checks if a bonus life is received. */
 	private boolean bonusLife;
 
+
 	/**
 	 * Constructor, establishes the properties of the screen.
 	 *
@@ -229,6 +230,8 @@ public class GameScreen extends Screen {
 					bullet.getPositionY());
 
 		// Interface.
+		drawManager.drawBulletCount(this, this.bulletsShot);
+
 		drawManager.drawScore(this, this.score);
 		drawManager.drawLives(this, this.lives);
 		drawManager.drawHorizontalLine(this, (int) Math.round((SEPARATION_LINE_HEIGHT - 1) * (this.getHeight()/522f)));
