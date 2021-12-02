@@ -69,7 +69,6 @@ public class GameScreen extends Screen {
 	/** Checks if a bonus life is received. */
 	private boolean bonusLife;
 
-	private static Graphics backBufferGraphics;
 
 	/**
 	 * Constructor, establishes the properties of the screen.
@@ -229,6 +228,8 @@ public class GameScreen extends Screen {
 					bullet.getPositionY());
 
 		// Interface.
+		drawManager.drawBulletCount(this, this.bulletsShot);
+
 		drawManager.drawScore(this, this.score);
 		drawManager.drawLives(this, this.lives);
 		drawManager.drawHorizontalLine(this, (int) Math.round((SEPARATION_LINE_HEIGHT - 1) * (this.getHeight()/522f)));
@@ -291,14 +292,8 @@ public class GameScreen extends Screen {
 						}
 						if (enemyShip.getHp() == 2) {
 							this.score += enemyShip.getPointValue();
-//							this.shipsDestroyed++;
-//							this.enemyShipFormation.destroy(enemyShip);
 							recyclable.add(bullet);
 							enemyShip.hp--;
-//							enemyShip.color = Color.WHITE;
-//							drawManager.drawEntitywhite(enemyShip, enemyShip.getPositionX(), enemyShip.getPositionY());
-//							enemyShip.color = Color.WHITE;
-
 
 						}
 					}

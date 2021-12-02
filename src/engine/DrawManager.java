@@ -254,9 +254,6 @@ public final class DrawManager {
 							screen.getPosition(2), screen.getPosition(2));
 	}
 
-
-
-
 	/**
 	 * For debugging purpouses, draws the canvas borders.
 	 *
@@ -304,6 +301,22 @@ public final class DrawManager {
 		String scoreString = String.format("%04d", score);
 		backBufferGraphics.drawString(scoreString,
 				screen.getWidth() - screen.getPosition(60), screen.getPosition(25));
+	}
+
+	/**
+	 * Draws current bullet count on screen.
+	 *
+	 * @param screen
+	 *            Screen to draw on
+	 *            Current bullet count.
+	 */
+
+	public void drawBulletCount(final Screen screen, final int bulletsShot) {
+		backBufferGraphics.setFont(fontRegular);
+		backBufferGraphics.setColor(Color.WHITE);
+		String scoreString = String.format("%04d", bulletsShot);
+		backBufferGraphics.drawString(scoreString,
+				screen.getWidth() - screen.getPosition(120), screen.getPosition(25));
 	}
 
 	/**
