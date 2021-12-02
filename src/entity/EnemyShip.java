@@ -30,8 +30,7 @@ public class EnemyShip extends Entity {
 	/** Values of the ship, in points, when destroyed. */
 	private int pointValue;
 	/** hp of enemyship. Only type C takes 2*/
-	public int hp; //static 되면 안됨
-	public Color color;
+//	public int hp; //static 되면 안됨
 	/**
 	 * Constructor, establishes the ship's properties.
 	 * 
@@ -43,12 +42,14 @@ public class EnemyShip extends Entity {
 	 *            Sprite type, image corresponding to the ship.
 	 */
 	public EnemyShip(final int positionX, final int positionY,
-			final SpriteType spriteType, int hp, Color color) {
-		super(positionX, positionY, 12 * 2, 8 * 2, color);
+			final SpriteType spriteType, int hp) {
+		super(positionX, positionY, 12 * 2, 8 * 2, Color.WHITE);
 
 		this.spriteType = spriteType;
 		this.animationCooldown = Core.getCooldown(500);
 		this.isDestroyed = false;
+
+		this.hp = hp;
 
 		switch (this.spriteType) {
 		case EnemyShipA1:
@@ -62,14 +63,11 @@ public class EnemyShip extends Entity {
 		case EnemyShipC1:
 		case EnemyShipC2:
 			this.pointValue = C_TYPE_POINTS;
-//			this.color = Color.GREEN;
 			break;
 		default:
 			this.pointValue = 0;
 			break;
 		}
-		this.hp = hp;
-		this.color = color;
 	}
 
 	/**
@@ -154,4 +152,6 @@ public class EnemyShip extends Entity {
 	public final boolean isDestroyed() {
 		return this.isDestroyed;
 	}
+
+
 }

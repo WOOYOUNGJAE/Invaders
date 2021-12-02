@@ -283,19 +283,19 @@ public class GameScreen extends Screen {
 				for (EnemyShip enemyShip : this.enemyShipFormation)
 					if (!enemyShip.isDestroyed()
 							&& checkCollision(bullet, enemyShip)) {
-						if (enemyShip.hp == 1) {
+						if (enemyShip.getHp() == 1) {
 							this.score += enemyShip.getPointValue();
 							this.shipsDestroyed++;
 							this.enemyShipFormation.destroy(enemyShip);
 							recyclable.add(bullet);
 						}
-						if (enemyShip.hp == 2) {
+						if (enemyShip.getHp() == 2) {
 							this.score += enemyShip.getPointValue();
 //							this.shipsDestroyed++;
 //							this.enemyShipFormation.destroy(enemyShip);
 							recyclable.add(bullet);
 							enemyShip.hp--;
-							enemyShip.color = Color.WHITE;
+//							enemyShip.color = Color.WHITE;
 //							drawManager.drawEntitywhite(enemyShip, enemyShip.getPositionX(), enemyShip.getPositionY());
 //							enemyShip.color = Color.WHITE;
 

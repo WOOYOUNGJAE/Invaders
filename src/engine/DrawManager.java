@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import entity.EnemyShip;
 import screen.Screen;
 import entity.Entity;
 import entity.Ship;
@@ -235,7 +236,16 @@ public final class DrawManager {
 						   final int positionY) {
 		boolean[][] image = spriteMap.get(entity.getSpriteType());
 
-		backBufferGraphics.setColor(entity.getColor()); //컬러 설정
+		backBufferGraphics.setColor(entity.getColor());
+
+		switch (entity.getHp()) {
+			case 1: backBufferGraphics.setColor(Color.WHITE);
+			break;
+
+			case 2: backBufferGraphics.setColor(Color.GREEN);
+			break;
+		}
+
 		for (int i = 0; i < image.length; i++)
 			for (int j = 0; j < image[i].length; j++)
 				if (image[i][j])
