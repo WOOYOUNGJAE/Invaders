@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import entity.EnemyShip;
 import screen.Screen;
 import entity.Entity;
 import entity.Ship;
@@ -236,12 +237,43 @@ public final class DrawManager {
 		boolean[][] image = spriteMap.get(entity.getSpriteType());
 
 		backBufferGraphics.setColor(entity.getColor());
+
+		switch (entity.getHp()) {
+			case 1: backBufferGraphics.setColor(Color.WHITE);
+				break;
+
+			case 2: backBufferGraphics.setColor(Color.orange);
+				break;
+		}
+
 		for (int i = 0; i < image.length; i++)
 			for (int j = 0; j < image[i].length; j++)
 				if (image[i][j])
 					backBufferGraphics.fillRect(screen.getPosition(positionX) + i * screen.getPosition(2),
 							screen.getPosition(positionY) + j * screen.getPosition(2),
 							screen.getPosition(2), screen.getPosition(2));
+	}
+
+	public void drawBulletCountString (final Screen screen) {
+		backBufferGraphics.setFont(fontRegular);
+		backBufferGraphics.setColor(Color.WHITE);
+		String bulletCountString = "Bullet: ";
+		backBufferGraphics.drawString(bulletCountString,screen.getWidth() - screen.getPosition(195), screen.getPosition(25));}
+
+	/**
+	 * Draws current bullet count on screen.
+	 *
+	 * @param screen
+	 *            Screen to draw on
+	 *            Current bullet count.
+	 */
+
+	public void drawBulletCount(final Screen screen, final int bulletsShot) {
+		backBufferGraphics.setFont(fontRegular);
+		backBufferGraphics.setColor(Color.WHITE);
+		String scoreString = String.format("%04d", bulletsShot);
+		backBufferGraphics.drawString(scoreString,
+				screen.getWidth() - screen.getPosition(120), screen.getPosition(25));
 	}
 
 	/**

@@ -229,6 +229,9 @@ public class GameScreen extends Screen {
 					bullet.getPositionY());
 
 		// Interface.
+
+		drawManager.drawBulletCount(this, this.bulletsShot);
+		drawManager.drawBulletCountString (this);
 		drawManager.drawScore(this, this.score);
 		drawManager.drawLives(this, this.lives);
 		drawManager.drawHorizontalLine(this, (int) Math.round((SEPARATION_LINE_HEIGHT - 1) * (this.getHeight()/522f)));
@@ -283,10 +286,18 @@ public class GameScreen extends Screen {
 				for (EnemyShip enemyShip : this.enemyShipFormation)
 					if (!enemyShip.isDestroyed()
 							&& checkCollision(bullet, enemyShip)) {
-						this.score += enemyShip.getPointValue();
-						this.shipsDestroyed++;
-						this.enemyShipFormation.destroy(enemyShip);
-						recyclable.add(bullet);
+						if (enemyShip.getHp() == 1) {
+							this.score += enemyShip.getPointValue();
+							this.shipsDestroyed++;
+							this.enemyShipFormation.destroy(enemyShip);
+							recyclable.add(bullet);
+						}
+						if (enemyShip.getHp() == 2) {
+							this.score += enemyShip.getPointValue();
+							recyclable.add(bullet);
+							enemyShip.hp--;
+
+						}
 					}
 				if (this.enemyShipSpecial != null
 						&& !this.enemyShipSpecial.isDestroyed()
