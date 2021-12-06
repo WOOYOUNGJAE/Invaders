@@ -232,6 +232,7 @@ public class GameScreen extends Screen {
 
 		drawManager.drawBulletCount(this, this.bulletsShot);
 		drawManager.drawBulletCountString (this);
+		drawManager.drawScoreString(this);
 		drawManager.drawScore(this, this.score);
 		drawManager.drawLives(this, this.lives);
 		drawManager.drawHorizontalLine(this, (int) Math.round((SEPARATION_LINE_HEIGHT - 1) * (this.getHeight()/522f)));
