@@ -297,7 +297,6 @@ public class GameScreen extends Screen {
 							this.score += enemyShip.getPointValue();
 							recyclable.add(bullet);
 							enemyShip.hp--;
-
 						}
 					}
 				if (this.enemyShipSpecial != null
